@@ -1,687 +1,186 @@
-<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Services</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-	margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(50, 48, 44, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-default_background {
-	color: rgba(50, 48, 44, 1);
-}
-.highlight-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.highlight-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.block-color-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: undefined; }
-.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
-.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
-.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
-.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
-.select-value-color-transparentGray { background-color: undefined; }
-.select-value-color-translucentGray { background-color: undefined; }
-.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
-.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
-.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
-.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
-.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article class="page serif" id="1ad25ee0-224a-802a-a389-e4ca6832bc8d"><header><img class="page-cover-image" src="francesca1.jpg" style="object-position:center 50%"/><h1 class="page-title">Services</h1><p class="page-description"></p></header><div class="page-body"><div class="column-list" id="1b825ee0-224a-80cd-bc0d-fd548cc39cce"><div class="column" id="1b825ee0-224a-80e5-a8b4-c38bdadfea69" style="width:77.77777777777777%"><figure class="link-to-page" id="1ad25ee0-224a-80c8-9529-d9680193512e"><a href="../Next%20Step%20Home%20Inspections%201ad25ee0224a80c89529d9680193512e.html">Next Step Home Inspections</a></figure><figure class="link-to-page" id="1ad25ee0-224a-8076-98a9-cb7a32de92c1"><a href="Home%20inspection%20Standards%201ad25ee0224a807698a9cb7a32de92c1.html">Home inspection Standards</a></figure></div><div class="column" id="1b825ee0-224a-80a3-9170-ef2fe1e3b13f" style="width:22.222222222222214%"><figure class="link-to-page" id="1ad25ee0-224a-802a-a389-e4ca6832bc8d"><a href="Services%201ad25ee0224a802aa389e4ca6832bc8d.html">Services</a></figure><p class="" id="1b825ee0-224a-80bf-8755-fe3c97fff640"><a href="Our%20Process%201ad25ee0224a806ba0cad140feaad3e9.html">Our Process</a> </p></div></div><h2 class="" id="1b825ee0-224a-8012-a300-c61a73fc9619">Call us at 314-707-6761</h2><h1 class="" id="1ad25ee0-224a-8023-8b7c-f164257805c8"><strong>Services – Professional Home Inspections by Next Step Home Inspections</strong></h1><p class="" id="1ad25ee0-224a-8091-9799-c4154f464dee">At <strong>Next Step Home Inspections</strong>, we offer <strong>comprehensive home inspection services</strong> tailored to protect your investment and provide peace of mind. Whether you're buying, selling, or maintaining a home, our <strong>detailed, technology-driven inspections</strong> help identify potential issues before they become costly problems.</p><hr id="1ad25ee0-224a-80b9-ae90-e0290d01826e"/><h2 class="" id="1ad25ee0-224a-8005-9f86-faca39ed55b4"><strong>Home Inspections</strong></h2><h3 class="" id="1ad25ee0-224a-80bc-88d1-d3861532bd71"><strong>Comprehensive Home Inspection</strong></h3><p class="" id="1ad25ee0-224a-8037-8b92-eac29b0cc06f">🔍 <strong>A full evaluation of your home’s major systems and components</strong></p><h3 class="" id="1ad25ee0-224a-808d-be28-cce172e4f029"><strong>What’s Included?</strong></h3><p class="" id="1ad25ee0-224a-8075-85a7-de18670ac3c1">✅ <strong>Structural Integrity:</strong> Foundation, framing, roof, exterior, and overall stability.</p><p class="" id="1ad25ee0-224a-8053-99db-db0e9e676967">✅ <strong>Roof &amp; Attic Inspection:</strong> Shingles, flashing, ventilation, and insulation for potential leaks or damage.</p><p class="" id="1ad25ee0-224a-80af-8825-cbb73bdf94b7">✅ <strong>Plumbing System:</strong> Checking for leaks, water pressure issues, pipe condition, and proper drainage.</p><p class="" id="1ad25ee0-224a-803c-a850-f0f6903cf0af">✅ <strong>Electrical System:</strong> Ensuring breaker panels, wiring, outlets, and grounding are safe and up to code.</p><p class="" id="1ad25ee0-224a-80ab-9c09-cf081891011b">✅ <strong>HVAC System:</strong> Heating and cooling systems, filters, ductwork, and efficiency analysis.</p><p class="" id="1ad25ee0-224a-80b2-8587-fdf3f521458c">✅ <strong>Interior &amp; Appliances:</strong> Walls, ceilings, floors, doors, windows, and built-in appliances for defects.</p><p class="" id="1ad25ee0-224a-80d9-9231-e237aa1a2b05">💡 <strong>Why Choose Next Step Home Inspections?</strong></p><p class="" id="1ad25ee0-224a-805d-8196-f25034f7bcd2">✔ <strong>Flat-Rate Pricing</strong> – No hidden fees or hourly rates.</p><p class="" id="1ad25ee0-224a-80c8-a23b-c9a11a922f8d">✔ <strong>Detailed Digital Report Within 24 Hours</strong> – Complete with high-resolution photos and recommendations.</p><p class="" id="1ad25ee0-224a-80e4-aa59-d995e757f59f">✔ <strong>We Encourage Client Participation</strong> – Walk through the inspection with us and ask questions!</p><hr id="1ad25ee0-224a-80b2-a394-cd49ac65541c"/><h3 class="" id="1ad25ee0-224a-801a-9131-f34d8f2141c2"><strong>New Build Inspection</strong></h3><p class="" id="1ad25ee0-224a-8010-b036-d6f9ccf1795f">🏡 <strong>Think new homes don’t have issues? Think again!</strong></p><p class="" id="1ad25ee0-224a-80e5-9b5b-c51036df25b9">A <strong>New Build Inspection</strong> ensures that your brand-new home meets <strong>structural, electrical, and mechanical standards</strong> before you move in. Even professional builders can make mistakes, and early detection can save you from costly repairs.</p><h3 class="" id="1ad25ee0-224a-808f-a9a5-fc88a26fa2c2"><strong>What’s Included?</strong></h3><p class="" id="1ad25ee0-224a-80b0-bbd6-d892e4d3f1f3">🛠 <strong>Foundation &amp; Framing Checks</strong> – Ensuring the structural base is solid before walls go up.</p><p class="" id="1ad25ee0-224a-80c6-921a-d4148d554aaa">🚰 <strong>Plumbing &amp; Electrical Verification</strong> – Identifying installation errors before drywall covers them.</p><p class="" id="1ad25ee0-224a-80ef-b10c-de061969c8f3">✅ <strong>Final Walkthrough Evaluation</strong> – Checking all systems and finishes before move-in.</p><p class="" id="1ad25ee0-224a-805e-887b-d337ea7853b3"><strong>🔹 Avoid major headaches later—get your new home inspected before closing!</strong></p><hr id="1ad25ee0-224a-8083-95c7-f95691599b5d"/><h3 class="" id="1ad25ee0-224a-80ae-aa72-ec1132613fce"><strong>11-Month Warranty Inspection</strong></h3><p class="" id="1ad25ee0-224a-80b6-a9a8-c3de287872d9">📆 <strong>Is Your Builder’s Warranty About to Expire?</strong></p><p class="" id="1ad25ee0-224a-8092-9d4e-e4f8bc49fda3">Many builders provide <strong>a 1-year warranty</strong> on new homes. An <strong>11-Month Warranty Inspection</strong> helps homeowners <strong>identify defects</strong> while the builder is <strong>still responsible</strong> for repairs.</p><h3 class="" id="1ad25ee0-224a-805b-9f49-da3f9b9d60f3"><strong>What We Inspect:</strong></h3><p class="" id="1ad25ee0-224a-8032-aaa9-fad8e2d8b80b">✔ <strong>Structural Issues</strong> – Foundation cracks, roof defects, and settling problems.</p><p class="" id="1ad25ee0-224a-80a5-894e-eb227d4d031e">✔ <strong>Major Systems</strong> – Plumbing, electrical, HVAC, and appliances.</p><p class="" id="1ad25ee0-224a-8077-8093-dcb84db99bca">✔ <strong>Leaks, Drainage, and Insulation Problems</strong> – Avoid moisture issues before they get worse.</p><p class="" id="1ad25ee0-224a-804d-b451-e2b2a3b15a56">📝 <strong>Includes a full report</strong> to present to your builder for potential warranty-covered repairs.</p><hr id="1ad25ee0-224a-808c-b32f-da59b618d87c"/><h3 class="" id="1ad25ee0-224a-807f-952e-e8dee041f64c"><strong>Pre-Drywall Inspection</strong></h3><p class="" id="1ad25ee0-224a-8028-abfd-e9b859652c43">🚧 <strong>Catch Construction Mistakes Before It’s Too Late!</strong></p><p class="" id="1ad25ee0-224a-809c-a74e-fe966e1d2947">A <strong>Pre-Drywall Inspection</strong> occurs <strong>before insulation and drywall</strong> are installed, ensuring your home’s framework, wiring, and plumbing are done correctly.</p><h3 class="" id="1ad25ee0-224a-80c6-8f31-f5ac5ac15b97"><strong>Why is This Important?</strong></h3><ul class="bulleted-list" id="1ad25ee0-224a-803b-99d3-d28d319ac4ac"><li style="list-style-type:disc"><strong>Structural Issues</strong> can be identified <strong>before they’re covered up</strong>.</li></ul><ul class="bulleted-list" id="1ad25ee0-224a-80c6-b5b5-ce1e91bd7436"><li style="list-style-type:disc"><strong>Electrical &amp; Plumbing Mistakes</strong> can be <strong>fixed without tearing into walls later</strong>.</li></ul><ul class="bulleted-list" id="1ad25ee0-224a-8078-b33b-e37c89003d02"><li style="list-style-type:disc"><strong>Code Compliance &amp; Safety Assurance</strong> ensure that <strong>everything is built to standard.</strong></li></ul><p class="" id="1ad25ee0-224a-807a-a860-d90461f4ff70">💡 <strong>Saves homeowners money by catching problems before finishing construction.</strong></p><hr id="1ad25ee0-224a-807a-b6c6-cdb1a5cab7fc"/><h2 class="" id="1ad25ee0-224a-801f-8735-ef4c5fa585d2"><strong>Sewer Scope Inspection</strong></h2><p class="" id="1ad25ee0-224a-8020-8153-c9c36c06d818">🛑 <strong>Hidden Sewer Line Issues Can Cost Thousands!</strong></p><p class="" id="1ad25ee0-224a-8028-961b-e3ead39fdb31">A <strong>Sewer Scope Inspection</strong> uses advanced <strong>high-resolution camera equipment</strong> to inspect the underground sewer system, checking for:</p><p class="" id="1ad25ee0-224a-80e5-906e-fd2f96db671e">✔ <strong>Blockages &amp; Root Intrusion</strong> – Tree roots can destroy pipes over time.</p><p class="" id="1ad25ee0-224a-8001-a540-ef8ee5292dfe">✔ <strong>Pipe Deterioration &amp; Cracks</strong> – Older homes may have outdated clay or cast-iron pipes.</p><p class="" id="1ad25ee0-224a-8023-8a4b-caee03d5d7f5">✔ <strong>Drainage Problems</strong> – Avoid surprise backups after move-in.</p><p class="" id="1ad25ee0-224a-8058-be09-c183d3cd2315"><strong>🔹 Recommended for ALL homebuyers—especially for homes 20+ years old.</strong></p><hr id="1ad25ee0-224a-80d4-991c-da30fcfe0fd2"/><h2 class="" id="1ad25ee0-224a-80b5-998e-fb36effdb664"><strong>Radon Inspection</strong></h2><p class="" id="1ad25ee0-224a-809f-b6d1-ef04107c957d">☢ <strong>What is Radon?</strong></p><ul class="bulleted-list" id="1ad25ee0-224a-801e-95e7-fc26c83d0920"><li style="list-style-type:disc"><strong>A colorless, odorless radioactive gas</strong> that can cause lung cancer.</li></ul><ul class="bulleted-list" id="1ad25ee0-224a-8081-8fa6-d06df97e17e0"><li style="list-style-type:disc"><strong>The EPA recommends ALL homes be tested</strong> regardless of location.</li></ul><h3 class="" id="1ad25ee0-224a-80a7-b5d1-f79fbbfa5ee7"><strong>Our Radon Testing Process:</strong></h3><p class="" id="1ad25ee0-224a-800f-87c1-c4f82d1e1e8b">✅ <strong>48-hour continuous radon test</strong> for accurate results.</p><p class="" id="1ad25ee0-224a-8095-9e2a-ff280c91a686">✅ <strong>Professional-grade detection equipment</strong> to measure levels.</p><p class="" id="1ad25ee0-224a-80f2-bc28-d47f3bf56eac">✅ <strong>Recommendations for mitigation</strong> if high levels are found.</p><p class="" id="1ad25ee0-224a-80da-a0ba-c69587edecf6">💡 <strong>Protect your family’s health—schedule a radon test today!</strong></p><hr id="1ad25ee0-224a-8007-96d8-eec2e0574f47"/><h2 class="" id="1ad25ee0-224a-80ca-8f86-d26a45ab2056"><strong>Termite Inspection</strong></h2><p class="" id="1ad25ee0-224a-80da-90b9-deed0acd112e">🛑 <strong>Protect Your Home from Costly Termite Damage!</strong></p><p class="" id="1ad25ee0-224a-80f6-a0fa-e57aa6dd19c9">Termites <strong>cause billions of dollars in structural damage each year.</strong> If left unchecked, they can silently destroy your home’s <strong>wood framing, flooring, and support structures.</strong></p><h3 class="" id="1ad25ee0-224a-80af-9af6-e365cf1687dc"><strong>What We Check For:</strong></h3><p class="" id="1ad25ee0-224a-805e-84fc-e38f8486e52e">✔ <strong>Active Infestations</strong> – Detecting live termites before they spread.</p><p class="" id="1ad25ee0-224a-8025-808f-ca814a9bac13">✔ <strong>Mud Tubes &amp; Wood Damage</strong> – Common signs of an ongoing infestation.</p><p class="" id="1ad25ee0-224a-80a1-8358-e06c96450231">✔ <strong>Past Infestation Evidence</strong> – Identifying whether previous damage is still a concern.</p><p class="" id="1ad25ee0-224a-8001-a0bd-c2b9f254a4e8">💡 <strong>Early detection saves thousands in repair costs.</strong></p><hr id="1ad25ee0-224a-802d-9590-ead2c6d78b8a"/><h2 class="" id="1ad25ee0-224a-80f0-8ff0-fc87b891ae46"><strong>Why Choose Next Step Home Inspections?</strong></h2><p class="" id="1ad25ee0-224a-800a-b0ac-ce9c9c00f8b5">✅ <strong>Certified &amp; Experienced Inspectors</strong> – We follow InterNACHI’s Standards of Practice.</p><p class="" id="1ad25ee0-224a-80b3-9ef7-d4e49ba7467f">✅ <strong>Flat-Rate Pricing</strong> – No surprises or hidden fees.</p><p class="" id="1ad25ee0-224a-80c3-8821-d96f64fbc74d">✅ <strong>Fast, Detailed Reports</strong> – Delivered within <strong>24 hours</strong> with high-quality photos.</p><p class="" id="1ad25ee0-224a-8049-a300-e9aeedbb50d9">✅ <strong>Technology-Driven Inspections</strong> – We use <strong>thermal imaging, radon detection, and sewer scopes</strong> for precision.</p><p class="" id="1ad25ee0-224a-800d-a544-c78fbe8635f5">✅ <strong>Customer-Focused Approach</strong> – We take the time to <strong>educate and answer your questions.</strong></p><hr id="1ad25ee0-224a-807f-b434-efe354a375b4"/><h2 class="" id="1ad25ee0-224a-8042-bb22-e29fbee78bf7"><strong>Schedule Your Inspection Today!</strong></h2><p class="" id="1ad25ee0-224a-8029-838b-fd907b737fdc">
-</p><p class="" id="1ad25ee0-224a-8028-be3b-e5e47942678e">📞 <strong>Call Next Step Home Inspections:</strong> 314-707-6761</p><p class="" id="1ad25ee0-224a-80e3-b6fb-f2697a2515ba">📧 <strong>Email Us:</strong> brianreagan6@gmail.com</p><p class="" id="1b825ee0-224a-803a-822e-ec061078ad68">
-</p><hr id="1b825ee0-224a-801e-8098-cadb5ba314d4"/><p class="" id="1b825ee0-224a-8053-8ac4-fefcdfc65b0f">
-</p><div class="column-list" id="1b825ee0-224a-80a1-9423-d0354b8b0db4"><div class="column" id="1b825ee0-224a-800d-a7c6-ec271f212a31" style="width:77.77777777777777%"><figure class="link-to-page" id="1ad25ee0-224a-80c8-9529-d9680193512e"><a href="../Next%20Step%20Home%20Inspections%201ad25ee0224a80c89529d9680193512e.html">Next Step Home Inspections</a></figure><figure class="link-to-page" id="1ad25ee0-224a-8076-98a9-cb7a32de92c1"><a href="Home%20inspection%20Standards%201ad25ee0224a807698a9cb7a32de92c1.html">Home inspection Standards</a></figure></div><div class="column" id="1b825ee0-224a-80c5-af8b-e49358f7abab" style="width:22.222222222222214%"><figure class="link-to-page" id="1ad25ee0-224a-802a-a389-e4ca6832bc8d"><a href="Services%201ad25ee0224a802aa389e4ca6832bc8d.html">Services</a></figure><p class="" id="1b825ee0-224a-8047-b3e0-de83fdb3ff83"><a href="Our%20Process%201ad25ee0224a806ba0cad140feaad3e9.html">Our Process</a> </p></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 2em auto;
+      max-width: 900px;
+      color: #37352f;
+      line-height: 1.5;
+      background: #fff;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 1.875rem;
+      margin-top: 1.875rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      margin-top: 0;
+      margin-bottom: 0.75em;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0.5em 0;
+    }
+
+    ul {
+      padding-left: 1.7em;
+      margin: 0.6em 0;
+    }
+
+    li {
+      margin-bottom: 0.3em;
+    }
+
+    hr {
+      border: none;
+      border-bottom: 1px solid rgba(55, 53, 47, 0.1);
+      margin: 2em 0;
+    }
+
+    .page-cover-image {
+      width: 100%;
+      object-fit: cover;
+      max-height: 30vh;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1em;
+      margin-bottom: 2em;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <header>
+      <img class="page-cover-image" src="francesca1.jpg" alt="Cover">
+      <h1 class="page-title">Services</h1>
+    </header>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="inspection-standards.html">Standards</a>
+      <a href="our-process.html">Our Process</a>
+      <a href="services.html">Services</a>
+    </nav>
+
+    <h2>Call us at 314-707-6761</h2>
+
+    <h1>Services – Professional Home Inspections by Next Step Home Inspections</h1>
+    <p>At <strong>Next Step Home Inspections</strong>, we offer <strong>comprehensive home inspection services</strong> tailored to protect your investment and provide peace of mind. Whether you're buying, selling, or maintaining a home, our <strong>detailed, technology-driven inspections</strong> help identify potential issues before they become costly problems.</p>
+    <hr>
+
+    <h2>Home Inspections</h2>
+    <h3>Comprehensive Home Inspection</h3>
+    <p>🔍 Full evaluation of major systems and components.</p>
+
+    <h3>What’s Included?</h3>
+    <ul>
+      <li><strong>Structural:</strong> Foundation, framing, roof, exterior.</li>
+      <li><strong>Roof & Attic:</strong> Ventilation, insulation, signs of leaks.</li>
+      <li><strong>Plumbing:</strong> Leaks, pressure, drainage, condition.</li>
+      <li><strong>Electrical:</strong> Panels, wiring, outlets, safety.</li>
+      <li><strong>HVAC:</strong> Heating, cooling, ducts, efficiency.</li>
+      <li><strong>Interior & Appliances:</strong> Doors, windows, walls, built-ins.</li>
+    </ul>
+    <p>✔ <strong>Flat-rate pricing</strong>, <strong>24-hour reports</strong>, and <strong>client walkthroughs encouraged.</strong></p>
+    <hr>
+
+    <h3>New Build Inspection</h3>
+    <p>🏡 Ensure your new home meets standards before move-in.</p>
+    <ul>
+      <li>Foundation and framing review</li>
+      <li>Plumbing/electrical before drywall</li>
+      <li>Final walkthrough before closing</li>
+    </ul>
+    <hr>
+
+    <h3>11-Month Warranty Inspection</h3>
+    <p>📆 Catch warranty-covered issues before your builder’s 1-year coverage ends.</p>
+    <ul>
+      <li>Check for structural, HVAC, electrical, and plumbing issues</li>
+      <li>Receive a report to present to your builder</li>
+    </ul>
+    <hr>
+
+    <h3>Pre-Drywall Inspection</h3>
+    <p>🚧 Review construction before insulation and drywall are installed.</p>
+    <ul>
+      <li>Catch hidden framing or wiring problems</li>
+      <li>Ensure plumbing and electrical are code-compliant</li>
+    </ul>
+    <hr>
+
+    <h2>Sewer Scope Inspection</h2>
+    <p>🛑 Use high-res cameras to check underground sewer systems.</p>
+    <ul>
+      <li>Identify root intrusion, blockages, and pipe damage</li>
+      <li>Especially valuable for homes 20+ years old</li>
+    </ul>
+    <hr>
+
+    <h2>Radon Inspection</h2>
+    <p>☢ Test for this colorless, odorless gas linked to lung cancer.</p>
+    <ul>
+      <li>48-hour test using pro-grade equipment</li>
+      <li>Mitigation advice if levels are high</li>
+    </ul>
+    <hr>
+
+    <h2>Termite Inspection</h2>
+    <p>🛑 Find evidence of wood-destroying pests before it's too late.</p>
+    <ul>
+      <li>Active infestations and past damage</li>
+      <li>Signs like mud tubes and wood decay</li>
+    </ul>
+    <hr>
+
+    <h2>Why Choose Next Step?</h2>
+    <ul>
+      <li>Certified, experienced inspectors</li>
+      <li>No hidden fees, flat pricing</li>
+      <li>Reports within 24 hours</li>
+      <li>Advanced tools: thermal, radon, sewer scope</li>
+      <li>Customer-first approach</li>
+    </ul>
+    <hr>
+
+    <h2>Schedule Your Inspection</h2>
+    <p>📞 <strong>Call:</strong> 314-707-6761</p>
+    <p>📧 <strong>Email:</strong> brianreagan6@gmail.com</p>
+  </article>
+</body>
+</html>
